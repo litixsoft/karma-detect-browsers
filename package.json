@@ -1,0 +1,77 @@
+{
+    "name": "karma-detect-browsers",
+    "description": "Karma runner plugin for detecting all browsers installed on the current system.",
+    "version": "0.0.1",
+    "homepage": "https://github.com/litixsoft/karma-detect-browsers",
+    "author": {
+        "name": "Litixsoft GmbH",
+        "email": "info@litixsoft.de"
+    },
+    "maintainers": [
+        {
+            "name": "Timo Liebetrau",
+            "email": "t.liebetrau@litixsoft.de"
+        },
+        {
+            "name": "Marco Kannenberg",
+            "email": "m.kannenberg@litixsoft.de"
+        },
+        {
+            "name": "Andreas Krummsdorf",
+            "email": "a.krummsdorf@litixsoft.de"
+        },
+        {
+            "name": "Sven Bernstein",
+            "email": "s.bernstein@litixsoft.de"
+        },
+        {
+            "name": "Thomas Scheibe",
+            "email": "th.scheibe@litixsoft.de"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/litixsoft/karma-detect-browsers.git"
+    },
+    "bugs": {
+        "url": "https://github.com/litixsoft/karma-detect-browsers/issues"
+    },
+    "keywords": [
+        "karma-plugin",
+        "karma-launcher",
+        "browser",
+        "browsers",
+        "Safari",
+        "IE",
+        "Chrome",
+        "Chrome Canary",
+        "Firefox"
+    ],
+    "license": "The MIT License (MIT)",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/litixsoft/karma-detect-browsers/blob/master/LICENSE"
+        }
+    ],
+    "readmeFilename": "README.md",
+    "main": "index.js",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "peerDependencies": {
+        "karma": ">=0.9",
+        "karma-safari-launcher": "*",
+        "karma-ie-launcher": "*",
+        "karma-chrome-launcher": "*",
+        "karma-firefox-launcher": "*",
+        "karma-opera-launcher": "*"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.0",
+        "grunt-karma": "~0.5.0"
+    },
+    "dependencies": {
+    }
+}
