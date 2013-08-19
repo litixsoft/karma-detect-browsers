@@ -45,7 +45,8 @@
         "IE",
         "Chrome",
         "Chrome Canary",
-        "Firefox"
+        "Firefox",
+        "Opera"
     ],
     "license": "The MIT License (MIT)",
     "licenses": [
@@ -69,8 +70,14 @@
     },
     "devDependencies": {
         "grunt": "~0.4.1",
+        "grunt-contrib-copy": "~0.4.1",
         "grunt-contrib-jshint": "~0.6.0",
-        "grunt-karma": "~0.5.0"
+        "grunt-karma": "~0.5.0",
+        "karma-safari-launcher": "*",
+        "karma-ie-launcher": "*",
+        "karma-chrome-launcher": "*",
+        "karma-firefox-launcher": "*",
+        "karma-opera-launcher": "*"
     },
     "dependencies": {
     }

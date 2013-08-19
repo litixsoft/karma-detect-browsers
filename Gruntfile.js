@@ -28,14 +28,29 @@ module.exports = function (grunt) {
                 }
             },
             test: ['Gruntfile.js', 'index.js']
+        },
+        copy: {
+            demo: {
+                expand: true,
+                src: ['index.js', 'browsers/**'],
+                dest: 'node_modules/karma-detect-browsers'
+            }
+        },
+        karma: {
+            demo: {
+                configFile: 'demo/karma.conf.js'
+            }
         }
     });
 
     // Load tasks.
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-karma');
 
     // Register tasks.
     grunt.registerTask('test', ['jshint:test']);
+    grunt.registerTask('demo', ['copy:demo', 'karma']);
 
     // Default task.
     grunt.registerTask('default', ['test']);
