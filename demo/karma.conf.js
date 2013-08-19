@@ -58,8 +58,6 @@ module.exports = function (config) {
         // CLI --report-slower-than 500
         reportSlowerThan: 500,
 
-        // compile coffee scripts
-
         plugins: [
             'karma-jasmine',
             'karma-chrome-launcher',

@@ -24,7 +24,16 @@ npm install karma-detect-browsers --save-dev
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-    frameworks: ['detectBrowsers']
+    frameworks: ['detectBrowsers'],
+
+    plugins: [
+        'karma-chrome-launcher',
+        'karma-firefox-launcher',
+        'karma-ie-launcher',
+        'karma-safari-launcher',
+        'karma-opera-launcher',
+        'karma-detect-browsers'
+    ]
   });
 };
 ```
@@ -55,7 +64,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
+The above copyright notice and this permission notice shall be included i
 all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR

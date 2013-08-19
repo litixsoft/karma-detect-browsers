@@ -58,7 +58,7 @@
     "readmeFilename": "README.md",
     "main": "index.js",
     "scripts": {
-        "test": "grunt test"
+        "test": "grunt demo"
     },
     "peerDependencies": {
         "karma": ">=0.9",
