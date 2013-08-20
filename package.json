@@ -1,7 +1,7 @@
 {
     "name": "karma-detect-browsers",
     "description": "Karma runner plugin for detecting all browsers installed on the current system.",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "homepage": "https://github.com/litixsoft/karma-detect-browsers",
     "author": {
         "name": "Litixsoft GmbH",
