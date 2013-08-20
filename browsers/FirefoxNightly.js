@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'FirefoxAurora',
+    name: 'FirefoxNightly',
     DEFAULT_CMD: {
         linux: ['firefox'],
         darwin: ['/Applications/FirefoxNightly.app/Contents/MacOS/firefox-bin'],
