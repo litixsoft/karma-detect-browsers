@@ -26,6 +26,9 @@ module.exports = function(config) {
   config.set({
     frameworks: ['detectBrowsers'],
 
+    // enable/disable, default is true
+    detectBrowsers: true,
+
     plugins: [
         'karma-chrome-launcher',
         'karma-firefox-launcher',
