@@ -41,6 +41,11 @@ var DetectBrowser = function (config) {
         return result;
     }
 
+    if (config.detectBrowsers === false) {
+        console.log('Detecting browsers is disabled. The browsers of the browsers array are used.');
+        return;
+    }
+
     var availableBrowser = getInstalledBrowsers(browsers);
 
     console.log('Following browsers where detected on your system:');

@@ -39,6 +39,10 @@ module.exports = function (grunt) {
         karma: {
             demo: {
                 configFile: 'demo/karma.conf.js'
+            },
+            disabled: {
+                configFile: 'demo/karma.conf.js',
+                detectBrowsers: false
             }
         }
     });
