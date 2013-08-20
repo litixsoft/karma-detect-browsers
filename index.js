@@ -30,7 +30,7 @@ var DetectBrowser = function (config) {
 
                     // set env variable on win32 when it does not exist yet
                     if (process.platform === 'win32' && !process.env[browser.ENV_CMD]) {
-                        process.env[browser.ENV_CMD] = browserPaths[i];
+                        process.env[browser.ENV_CMD] = browserPaths[y];
                     }
 
                     break;
