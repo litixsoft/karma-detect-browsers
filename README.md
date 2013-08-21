@@ -1,4 +1,4 @@
-# karma-detect-browsers
+# karma-detect-browsers [![Build Status](https://travis-ci.org/litixsoft/karma-detect-browsers.png?branch=master)](https://travis-ci.org/litixsoft/karma-detect-browsers)
 
 > Karma runner plugin for detecting all browsers installed on the current system. Adds all found browsers to the browser array in the karma config file.
 
@@ -50,6 +50,9 @@ grunt demo
 ```
 
 ## Release History
+### v0.1.1
+* only override browsers in config when a browser was found by the plugin
+
 ### v0.1.0
 * first release
 
