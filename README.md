@@ -26,10 +26,11 @@ module.exports = function(config) {
   config.set({
     frameworks: ['detectBrowsers'],
 
-    // enable/disable, default is true
+    // configuration
     detectBrowsers: {
       // enable/disable, default is true
       enabled: true,
+
       // enable/disable phantomjs support, default is true
       usePhantomJS: true
     },
