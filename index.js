@@ -48,10 +48,15 @@ var DetectBrowser = function (config) {
 
     var availableBrowser = getInstalledBrowsers(browsers);
 
-    console.log('Following browsers where detected on your system:');
-    console.log(availableBrowser);
+    // override the browsers in the config only when browsers where find by this plugin
+    if (availableBrowser.length > 0) {
+        console.log('Following browsers where detected on your system:');
+        console.log(availableBrowser);
 
-    config.browsers = availableBrowser;
+        config.browsers = availableBrowser;
+    } else {
+        console.log('No browser was detected. The browsers of the browsers array are used.');
+    }
 };
 
 // inject karma runner config
