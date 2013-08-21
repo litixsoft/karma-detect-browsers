@@ -65,6 +65,7 @@ module.exports = function (config) {
             'karma-ie-launcher',
             'karma-safari-launcher',
             'karma-opera-launcher',
+            'karma-phantomjs-launcher',
             'karma-detect-browsers'
         ]
     });

@@ -27,15 +27,21 @@ module.exports = function(config) {
     frameworks: ['detectBrowsers'],
 
     // enable/disable, default is true
-    detectBrowsers: true,
+    detectBrowsers: {
+      // enable/disable, default is true
+      enabled: true,
+      // enable/disable phantomjs support, default is true
+      usePhantomJS: true
+    },
 
     plugins: [
-        'karma-chrome-launcher',
-        'karma-firefox-launcher',
-        'karma-ie-launcher',
-        'karma-safari-launcher',
-        'karma-opera-launcher',
-        'karma-detect-browsers'
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-ie-launcher',
+      'karma-safari-launcher',
+      'karma-opera-launcher',
+      'karma-phantomjs-launcher',
+      'karma-detect-browsers'
     ]
   });
 };
@@ -50,6 +56,9 @@ grunt demo
 ```
 
 ## Release History
+### v0.1.2
+* add support for phantomjs, is enabled by default, can be disabled
+
 ### v0.1.1
 * only override browsers in config when a browser was found by the plugin
 

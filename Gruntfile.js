@@ -42,7 +42,15 @@ module.exports = function (grunt) {
             },
             disabled: {
                 configFile: 'demo/karma.conf.js',
-                detectBrowsers: false
+                detectBrowsers: {
+                    enabled: false
+                }
+            },
+            phantomjs_disabled: {
+                configFile: 'demo/karma.conf.js',
+                detectBrowsers: {
+                    usePhantomJS: false
+                }
             }
         }
     });

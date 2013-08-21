@@ -1,7 +1,7 @@
 {
     "name": "karma-detect-browsers",
     "description": "Karma runner plugin for detecting all browsers installed on the current system.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "homepage": "https://github.com/litixsoft/karma-detect-browsers",
     "author": {
         "name": "Litixsoft GmbH",
@@ -66,7 +66,8 @@
         "karma-ie-launcher": "*",
         "karma-chrome-launcher": "*",
         "karma-firefox-launcher": "*",
-        "karma-opera-launcher": "*"
+        "karma-opera-launcher": "*",
+        "karma-phantomjs-launcher": "*"
     },
     "devDependencies": {
         "grunt": "~0.4.1",
@@ -77,7 +78,8 @@
         "karma-ie-launcher": "*",
         "karma-chrome-launcher": "*",
         "karma-firefox-launcher": "*",
-        "karma-opera-launcher": "*"
+        "karma-opera-launcher": "*",
+        "karma-phantomjs-launcher": "*"
     },
     "dependencies": {
     }

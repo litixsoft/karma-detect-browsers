@@ -1,6 +1,6 @@
 'use strict';
 
-var DetectBrowser = function (config) {
+var DetectBrowsers = function (config) {
     var path = require('path'),
         fs = require('fs'),
         browsers = require('./browsers');
@@ -41,7 +41,10 @@ var DetectBrowser = function (config) {
         return result;
     }
 
-    if (config.detectBrowsers === false) {
+    config = config || {};
+    config.detectBrowsers = config.detectBrowsers || {};
+
+    if (config.detectBrowsers.enabled === false) {
         console.log('Detecting browsers is disabled. The browsers of the browsers array are used.');
         return;
     }
@@ -50,6 +53,11 @@ var DetectBrowser = function (config) {
 
     // override the browsers in the config only when browsers where find by this plugin
     if (availableBrowser.length > 0) {
+        // check for PhantomJS option
+        if (config.detectBrowsers.usePhantomJS !== false) {
+            availableBrowser.push('PhantomJS');
+        }
+
         console.log('Following browsers where detected on your system:');
         console.log(availableBrowser);
 
@@ -60,9 +68,9 @@ var DetectBrowser = function (config) {
 };
 
 // inject karma runner config
-DetectBrowser.$inject = ['config'];
+DetectBrowsers.$inject = ['config'];
 
 // PUBLISH DI MODULE
 module.exports = {
-    'framework:detectBrowsers': ['factory', DetectBrowser]
+    'framework:detectBrowsers': ['factory', DetectBrowsers]
 };
