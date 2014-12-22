@@ -61,9 +61,9 @@ var DetectBrowsers = function (config) {
         console.log('Following browsers where detected on your system:');
         console.log(availableBrowser);
 
-        if(config.detectBrowsers.postDetection){
+        if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
-            availableBrowser=config.detectBrowsers.postDetection(availableBrowser);
+            availableBrowser = config.detectBrowsers.postDetection(availableBrowser);
         }
 
         config.browsers = availableBrowser;

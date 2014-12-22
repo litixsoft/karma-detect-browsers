@@ -1,6 +1,11 @@
-# karma-detect-browsers [![Build Status](https://travis-ci.org/litixsoft/karma-detect-browsers.png?branch=master)](https://travis-ci.org/litixsoft/karma-detect-browsers)
+# karma-detect-browsers
 
 > Karma runner plugin for detecting all browsers installed on the current system. Adds all found browsers to the browser array in the karma config file.
+
+> [![NPM version](https://badge.fury.io/js/karma-detect-browsers.svg)](http://badge.fury.io/js/karma-detect-browsers)
+[![Build Status](https://secure.travis-ci.org/litixsoft/karma-detect-browsers.svg?branch=master)](https://travis-ci.org/litixsoft/karma-detect-browsers)
+[![david-dm](https://david-dm.org/litixsoft/karma-detect-browsers.svg?theme=shields.io)](https://david-dm.org/litixsoft/karma-detect-browsers/)
+[![david-dm](https://david-dm.org/litixsoft/karma-detect-browsers/dev-status.svg?theme=shields.io)](https://david-dm.org/litixsoft/karma-detect-browsers#info=devDependencies&view=table)
 
 ## Installation
 
@@ -8,13 +13,13 @@ The easiest way is to keep `karma-detect-browsers` as a devDependency in your `p
 ```json
 {
   "devDependencies": {
-    "karma": "~0.10",
-    "karma-detect-browsers": "~0.1"
+    "karma": "^0.12",
+    "karma-detect-browsers": "^0.1"
   }
 }
 ```
 
-You can simple do it by:
+You can simply do it by:
 ```bash
 npm install karma-detect-browsers --save-dev
 ```
@@ -33,30 +38,36 @@ module.exports = function(config) {
 
       // enable/disable phantomjs support, default is true
       usePhantomJS: true,
-      //Post process browsers list
-       postDetection: function(availableBrowser) {
-            /*Karma configuration
-            customLaunchers: {
-                IE9: {
-                    base: 'IE',
-                    'x-ua-compatible': 'IE=EmulateIE9'
-                }
-            }*/
 
-            //Add IE Emulation
-            var result = availableBrowser;
-            if (availableBrowser.indexOf('IE')>-1) {
-                result.push('IE9');
+      // post processing of browsers list
+      // here you can edit the list of browsers used by karma
+      postDetection: function(availableBrowser) {
+        /* Karma configuration with custom launchers
+          customLaunchers: {
+            IE9: {
+              base: 'IE',
+              'x-ua-compatible': 'IE=EmulateIE9'
             }
+          }
+        */
 
-            //Remove PhantomJS if another browser has been detected
-            if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS')>-1) {
-                var i = result.indexOf('PhantomJS');
-                if (i !== -1) {
-                    result.splice(i, 1);
-                }
+          //Add IE Emulation
+          var result = availableBrowser;
+
+          if (availableBrowser.indexOf('IE')>-1) {
+            result.push('IE9');
+          }
+
+          //Remove PhantomJS if another browser has been detected
+          if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS')>-1) {
+            var i = result.indexOf('PhantomJS');
+
+            if (i !== -1) {
+              result.splice(i, 1);
             }
-            return result;
+          }
+
+          return result;
         }
     },
 
@@ -82,6 +93,9 @@ grunt demo
 ```
 
 ## Release History
+### v0.1.3
+* add new parameter (postDetection) to post process browser list
+
 ### v0.1.2
 * add support for phantomjs, is enabled by default, can be disabled
 
@@ -95,7 +109,7 @@ grunt demo
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2014 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
