@@ -32,7 +32,32 @@ module.exports = function(config) {
       enabled: true,
 
       // enable/disable phantomjs support, default is true
-      usePhantomJS: true
+      usePhantomJS: true,
+      //Post process browsers list
+       postDetection: function(availableBrowser) {
+            /*Karma configuration
+            customLaunchers: {
+                IE9: {
+                    base: 'IE',
+                    'x-ua-compatible': 'IE=EmulateIE9'
+                }
+            }*/
+
+            //Add IE Emulation
+            var result = availableBrowser;
+            if (availableBrowser.indexOf('IE')>-1) {
+                result.push('IE9');
+            }
+
+            //Remove PhantomJS if another browser has been detected
+            if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS')>-1) {
+                var i = result.indexOf('PhantomJS');
+                if (i !== -1) {
+                    result.splice(i, 1);
+                }
+            }
+            return result;
+        }
     },
 
     plugins: [
