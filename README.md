@@ -93,6 +93,9 @@ grunt demo
 ```
 
 ## Release History
+### v1.0.0
+* PhantomJS was not used when there are no browsers installed in the system
+
 ### v0.1.3
 * add new parameter (postDetection) to post process browser list
 
