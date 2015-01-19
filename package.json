@@ -70,12 +70,14 @@
     },
     "devDependencies": {
         "grunt": "~0.4.5",
+        "grunt-contrib-copy": "^0.7.0",
         "grunt-contrib-jshint": "~0.10.0",
-        "grunt-karma": "~0.6.0",
+        "grunt-karma": "~0.10.1",
         "karma-safari-launcher": "*",
         "karma-ie-launcher": "*",
         "karma-chrome-launcher": "*",
         "karma-firefox-launcher": "*",
+        "karma-jasmine": "^0.3.5",
         "karma-opera-launcher": "*",
         "karma-phantomjs-launcher": "*"
     },
