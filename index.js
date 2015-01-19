@@ -52,7 +52,7 @@ var DetectBrowsers = function (config) {
     var availableBrowser = getInstalledBrowsers(browsers);
 
     // override the browsers in the config only when browsers where find by this plugin
-    if (availableBrowser.length > 0) {
+    if (availableBrowser.length >= 0) {
         // check for PhantomJS option
         if (config.detectBrowsers.usePhantomJS !== false) {
             availableBrowser.push('PhantomJS');
@@ -66,7 +66,9 @@ var DetectBrowsers = function (config) {
             availableBrowser = config.detectBrowsers.postDetection(availableBrowser);
         }
 
-        config.browsers = availableBrowser;
+        if (availableBrowser.length > 0) {
+            config.browsers = availableBrowser;
+        }
     } else {
         console.log('No browser was detected. The browsers of the browsers array are used.');
     }
