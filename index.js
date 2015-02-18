@@ -1,9 +1,10 @@
 'use strict';
 
-var DetectBrowsers = function (config) {
+var DetectBrowsers = function (config, logger) {
     var path = require('path'),
         fs = require('fs'),
-        browsers = require('./browsers');
+        browsers = require('./browsers'),
+        log = logger.create('framework.detect-browsers');
 
     /**
      * Returns all browser names found on the current system.
@@ -45,7 +46,7 @@ var DetectBrowsers = function (config) {
     config.detectBrowsers = config.detectBrowsers || {};
 
     if (config.detectBrowsers.enabled === false) {
-        console.log('Detecting browsers is disabled. The browsers of the browsers array are used.');
+        log.info('Detecting browsers is disabled. The browsers of the browsers array are used.');
         return;
     }
 
@@ -58,8 +59,7 @@ var DetectBrowsers = function (config) {
             availableBrowser.push('PhantomJS');
         }
 
-        console.log('Following browsers where detected on your system:');
-        console.log(availableBrowser);
+        log.info('Following browsers where detected on your system:', availableBrowser);
 
         if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
@@ -70,12 +70,12 @@ var DetectBrowsers = function (config) {
             config.browsers = availableBrowser;
         }
     } else {
-        console.log('No browser was detected. The browsers of the browsers array are used.');
+        log.warn('No browser was detected. The browsers of the browsers array are used.');
     }
 };
 
 // inject karma runner config
-DetectBrowsers.$inject = ['config'];
+DetectBrowsers.$inject = ['config', 'logger'];
 
 // PUBLISH DI MODULE
 module.exports = {
