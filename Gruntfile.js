@@ -51,6 +51,10 @@ module.exports = function (grunt) {
                 detectBrowsers: {
                     usePhantomJS: false
                 }
+            },
+            noLogging: {
+                configFile: 'demo/karma.conf.js',
+                logLevel: 'ERROR'
             }
         }
     });
