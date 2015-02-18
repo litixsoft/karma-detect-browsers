@@ -93,6 +93,9 @@ grunt demo
 ```
 
 ## Release History
+### v1.1.0
+* Use karma's logger instead of console.log to respect the log level set in the karma config file
+
 ### v1.0.0
 * PhantomJS was not used when there are no browsers installed in the system
 
