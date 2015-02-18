@@ -69,10 +69,10 @@
         "karma-phantomjs-launcher": "*"
     },
     "devDependencies": {
-        "grunt": "~0.4.5",
+        "grunt": "^0.4.5",
         "grunt-contrib-copy": "^0.7.0",
-        "grunt-contrib-jshint": "~0.10.0",
-        "grunt-karma": "~0.10.1",
+        "grunt-contrib-jshint": "^0.11.0",
+        "grunt-karma": "^0.10.1",
         "karma-safari-launcher": "*",
         "karma-ie-launcher": "*",
         "karma-chrome-launcher": "*",
