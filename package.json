@@ -62,7 +62,7 @@
     "scripts": {
         "test": "grunt demo"
     },
-    "peerDependencies": {
+    "dependencies": {
         "karma": ">=0.9",
         "karma-safari-launcher": "*",
         "karma-ie-launcher": "*",
@@ -76,14 +76,6 @@
         "grunt-contrib-copy": "^0.8.0",
         "grunt-contrib-jshint": "^0.11.0",
         "grunt-karma": "^0.10.1",
-        "karma-safari-launcher": "*",
-        "karma-ie-launcher": "*",
-        "karma-chrome-launcher": "*",
-        "karma-firefox-launcher": "*",
-        "karma-jasmine": "^0.3.5",
-        "karma-opera-launcher": "*",
-        "karma-phantomjs-launcher": "*"
-    },
-    "dependencies": {
+        "karma-jasmine": "^0.3.5"
     }
 }
