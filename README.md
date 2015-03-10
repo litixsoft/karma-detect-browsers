@@ -93,7 +93,10 @@ grunt demo
 ```
 
 ## Release History
-### v1.1.0
+### v1.1.2
+* Revert peerDependencies changes, since this would be a breaking change. Waiting for npm v3 final.
+
+### v1.1.1
 * Move peerDependencies to dependencies in preparation of npm v3+
 
 ### v1.1.0
