@@ -14,7 +14,7 @@ The easiest way is to keep `karma-detect-browsers` as a devDependency in your `p
 {
   "devDependencies": {
     "karma": "^0.12",
-    "karma-detect-browsers": "^0.1"
+    "karma-detect-browsers": "^1.0"
   }
 }
 ```
@@ -22,6 +22,31 @@ The easiest way is to keep `karma-detect-browsers` as a devDependency in your `p
 You can simply do it by:
 ```bash
 npm install karma-detect-browsers --save-dev
+```
+
+## Get started
+
+* add detectBrowsers as framework and plugin to your karma config file
+* add the karma browser plugins for all the browser installed on your system
+* add the karma browser plugins to the `package.json` file
+
+```js
+// karma.conf.js
+module.exports = function(config) {
+  config.set({
+    frameworks: ['detectBrowsers'],
+
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-ie-launcher',
+      'karma-safari-launcher',
+      'karma-opera-launcher',
+      'karma-phantomjs-launcher',
+      'karma-detect-browsers'
+    ]
+  });
+};
 ```
 
 ## Configuration
