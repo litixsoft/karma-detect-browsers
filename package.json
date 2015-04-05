@@ -62,15 +62,6 @@
     "scripts": {
         "test": "grunt demo"
     },
-    "peerDependencies": {
-        "karma": ">=0.9",
-        "karma-safari-launcher": "*",
-        "karma-ie-launcher": "*",
-        "karma-chrome-launcher": "*",
-        "karma-firefox-launcher": "*",
-        "karma-opera-launcher": "*",
-        "karma-phantomjs-launcher": "*"
-    },
     "devDependencies": {
         "grunt": "^0.4.5",
         "grunt-contrib-copy": "^0.8.0",
