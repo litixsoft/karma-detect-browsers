@@ -14,7 +14,7 @@ The easiest way is to keep `karma-detect-browsers` as a devDependency in your `p
 {
   "devDependencies": {
     "karma": "^0.12",
-    "karma-detect-browsers": "^1.0"
+    "karma-detect-browsers": "^2.0"
   }
 }
 ```
@@ -118,6 +118,10 @@ grunt demo
 ```
 
 ## Release History
+### v2.0.0
+* Drop peerDependencies so that the user has full control which karma browser plugins are installed via npm
+* This is a breaking change since now you have to manually add the karma browser plugins to the `package.json` file of your project
+
 ### v1.1.2
 * Revert peerDependencies changes, since this would be a breaking change. Waiting for npm v3 final.
 
