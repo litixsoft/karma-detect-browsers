@@ -1,5 +1,49 @@
 'use strict';
 
+var karmaConfig = {
+    demo: {
+        configFile: 'demo/karma.conf.js'
+    },
+    disabled: {
+        configFile: 'demo/karma.conf.js',
+        detectBrowsers: {
+            enabled: false
+        }
+    },
+    phantomjs_disabled: {
+        configFile: 'demo/karma.conf.js',
+        detectBrowsers: {
+            usePhantomJS: false
+        }
+    },
+    noLogging: {
+        configFile: 'demo/karma.conf.js',
+        logLevel: 'ERROR'
+    }
+};
+
+if(process.env.TRAVIS) {
+    for(var keys = Object.keys(karmaConfig), i = 0; i < keys.length; i++) {
+        var config = karmaConfig[keys[i]];
+
+        config.customLaunchers = {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        };
+
+        config.detectBrowsers = config.detectBrowsers || {};
+        config.detectBrowsers.postDetection = function(browsers) {
+            var index = browsers.indexOf('Chrome');
+            if(index !== -1) {
+                browsers[index] = 'Chrome_travis_ci';
+            }
+            return browsers;
+        };
+    }
+}
+
 module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
@@ -36,27 +80,7 @@ module.exports = function (grunt) {
                 dest: 'node_modules/karma-detect-browsers'
             }
         },
-        karma: {
-            demo: {
-                configFile: 'demo/karma.conf.js'
-            },
-            disabled: {
-                configFile: 'demo/karma.conf.js',
-                detectBrowsers: {
-                    enabled: false
-                }
-            },
-            phantomjs_disabled: {
-                configFile: 'demo/karma.conf.js',
-                detectBrowsers: {
-                    usePhantomJS: false
-                }
-            },
-            noLogging: {
-                configFile: 'demo/karma.conf.js',
-                logLevel: 'ERROR'
-            }
-        }
+        karma: karmaConfig
     });
 
     // Load tasks.
