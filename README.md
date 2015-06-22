@@ -118,6 +118,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.0.1
+* Add some executables names for the Chrome browser in Linux
+
 ### v2.0.0
 * Drop peerDependencies so that the user has full control which karma browser plugins are installed via npm
 * This is a breaking change since now you have to manually add the karma browser plugins to the `package.json` file of your project
