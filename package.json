@@ -52,7 +52,7 @@
         "Firefox",
         "Opera"
     ],
-    "license": "The MIT License (MIT)",
+    "license": "MIT",
     "licenses": [
         {
             "type": "MIT",
@@ -67,8 +67,8 @@
         "grunt": "^0.4.5",
         "grunt-contrib-copy": "^0.8.0",
         "grunt-contrib-jshint": "^0.11.2",
-        "grunt-karma": "^0.11.1",
-        "karma-jasmine": "^0.3.5",
+        "grunt-karma": "^0.12.0",
+        "karma-jasmine": "^0.3.6",
         "karma-safari-launcher": "*",
         "karma-ie-launcher": "*",
         "karma-chrome-launcher": "*",
