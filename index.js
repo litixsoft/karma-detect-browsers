@@ -1,8 +1,7 @@
 'use strict';
 
 var DetectBrowsers = function (config, logger) {
-    var path = require('path'),
-        fs = require('fs'),
+    var fs = require('fs'),
         which = require('which'),
         browsers = require('./browsers'),
         log = logger.create('framework.detect-browsers');
