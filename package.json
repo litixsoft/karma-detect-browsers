@@ -31,7 +31,8 @@
     ],
     "contributors": [
         "Terin Stock <terin@terinstock.com>",
-        "安坚实 <anjianshi@gmail.com>"
+        "安坚实 <anjianshi@gmail.com>",
+        "John Vilk <jvilk@cs.umass.edu>"
     ],
     "repository": {
         "type": "git",
@@ -80,5 +81,6 @@
         "phantomjs": "1.9.18"
     },
     "dependencies": {
+        "which": "~1.2.0"
     }
 }

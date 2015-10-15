@@ -3,6 +3,7 @@
 var DetectBrowsers = function (config, logger) {
     var path = require('path'),
         fs = require('fs'),
+        which = require('which'),
         browsers = require('./browsers'),
         log = logger.create('framework.detect-browsers');
 
@@ -25,16 +26,20 @@ var DetectBrowsers = function (config, logger) {
 
             // iterate over all browser paths
             for (y = 0; y < paths; y++) {
-                if (fs.existsSync(browserPaths[y]) || process.env[browser.ENV_CMD] || fs.existsSync(path.join('/', 'usr', 'bin', browserPaths[y]))) {
-                    // add browser when found in file system or when env variable is set
-                    result.push(browser.name);
+                try {
+                    if (fs.existsSync(browserPaths[y]) || process.env[browser.ENV_CMD] || which.sync(browserPaths[y])) {
+                        // add browser when found in file system or when env variable is set
+                        result.push(browser.name);
 
-                    // set env variable on win32 when it does not exist yet
-                    if (process.platform === 'win32' && !process.env[browser.ENV_CMD]) {
-                        process.env[browser.ENV_CMD] = browserPaths[y];
+                        // set env variable on win32 when it does not exist yet
+                        if (process.platform === 'win32' && !process.env[browser.ENV_CMD]) {
+                            process.env[browser.ENV_CMD] = browserPaths[y];
+                        }
+
+                        break;
                     }
-
-                    break;
+                } catch (e) {
+                    // which.sync() failed to find the browser.
                 }
             }
         }
@@ -59,7 +64,7 @@ var DetectBrowsers = function (config, logger) {
             availableBrowser.push('PhantomJS');
         }
 
-        log.info('Following browsers where detected on your system:', availableBrowser);
+        log.info('The following browsers were detected on your system:', availableBrowser);
 
         if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
@@ -70,7 +75,7 @@ var DetectBrowsers = function (config, logger) {
             config.browsers = availableBrowser;
         }
     } else {
-        log.warn('No browser was detected. The browsers of the browsers array are used.');
+        log.warn('No browsers were detected. The browsers of the browsers array are used.');
     }
 };
 
