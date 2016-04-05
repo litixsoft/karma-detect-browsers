@@ -6,5 +6,6 @@ module.exports = {
     firefoxNightly: require('./FirefoxNightly.js'),
     ie: require('./IE.js'),
     // opera: require('./Opera.js'),
-    safari: require('./Safari.js')
+    safari: require('./Safari.js'),
+    safariTechPreview: require('./SafariTechPreview.js'),
 };
