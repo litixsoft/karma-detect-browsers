@@ -1,7 +1,7 @@
 {
     "name": "karma-detect-browsers",
     "description": "Karma runner plugin for detecting all browsers installed on the current system.",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "homepage": "https://github.com/litixsoft/karma-detect-browsers",
     "author": {
         "name": "Litixsoft GmbH",
@@ -32,7 +32,8 @@
     "contributors": [
         "Terin Stock <terin@terinstock.com>",
         "安坚实 <anjianshi@gmail.com>",
-        "John Vilk <jvilk@cs.umass.edu>"
+        "John Vilk <jvilk@cs.umass.edu>",
+        "Marcos Caceres <marcos@marcosc.com>"
     ],
     "repository": {
         "type": "git",
@@ -47,6 +48,8 @@
         "browser",
         "browsers",
         "Safari",
+        "Safari Tech Preview",
+        "SafariTechPreview",
         "IE",
         "Chrome",
         "Chrome Canary",

@@ -13,7 +13,7 @@ The easiest way is to keep `karma-detect-browsers` as a devDependency in your `p
 ```json
 {
   "devDependencies": {
-    "karma": "^0.12",
+    "karma": "^0.13",
     "karma-detect-browsers": "^2.0"
   }
 }
@@ -41,6 +41,7 @@ module.exports = function(config) {
       'karma-firefox-launcher',
       'karma-ie-launcher',
       'karma-safari-launcher',
+      'karma-safaritechpreview-launcher',
       'karma-opera-launcher',
       'karma-phantomjs-launcher',
       'karma-detect-browsers'
@@ -101,6 +102,7 @@ module.exports = function(config) {
       'karma-firefox-launcher',
       'karma-ie-launcher',
       'karma-safari-launcher',
+      'karma-safaritechpreview-launcher',
       'karma-opera-launcher',
       'karma-phantomjs-launcher',
       'karma-detect-browsers'
@@ -118,6 +120,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.1.0
+* Add support for detecting Safari Tech Preview
+
 ### v2.0.1
 * Add some executables names for the Chrome browser in Linux
 
