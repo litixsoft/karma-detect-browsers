@@ -3,7 +3,7 @@ module.exports = function (config) {
         // base path, that will be used to resolve files and exclude
         basePath: '',
 
-        frameworks: ['jasmine', 'detectBrowsers'],
+        frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: [
@@ -44,11 +44,11 @@ module.exports = function (config) {
         // - PhantomJS
         // - IE (only Windows)
         // CLI --browsers Chrome,Firefox,Safari
-        browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        browsers: [process.env.TRAVIS ? 'Firefox' : 'MobileSafari'],
 
         // If browser does not capture in given timeout [ms], kill it
         // CLI --capture-timeout 5000
-        captureTimeout: 20000,
+        captureTimeout: 50000,
 
         // Auto run tests on start (when browsers are captured) and exit
         // CLI --single-run --no-single-run
@@ -63,6 +63,7 @@ module.exports = function (config) {
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-ie-launcher',
+            'karma-ios-simulator-launcher',
             'karma-safari-launcher',
             'karma-safaritechpreview-launcher',
             'karma-opera-launcher',

@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 globals: {
                 }
             },
-            test: ['Gruntfile.js', 'index.js']
+            test: ['Gruntfile.js', 'index.js', 'browsers/*.js']
         },
         copy: {
             demo: {
