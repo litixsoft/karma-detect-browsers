@@ -29,12 +29,11 @@ var DetectBrowsers = function (config, logger) {
                 try {
                     var browserLocated = fs.existsSync(browserPaths[y]) || process.env[browser.ENV_CMD] || which.sync(browserPaths[y]);
 
-                    // ignore Edge on operating systems other than Windows 10
+                    // don't use Edge on operating systems other than Windows 10
                     // (the launcher would be found, but would fail to run)
-                    var browserIgnored = browser.name === 'Edge' &&
-                                         (!process.platform === 'win32' || !/^1\d/.test(os.release()));
+                    var useBrowser = browser.name !== 'Edge' || process.platform === 'win32' && /^1\d/.test(os.release());
 
-                    if (browserLocated && !browserIgnored) {
+                    if (browserLocated && useBrowser) {
                         // add browser when found in file system or when env variable is set
                         result.push(browser.name);
 
