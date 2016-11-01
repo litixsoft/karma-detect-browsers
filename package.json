@@ -75,6 +75,7 @@
         "jasmine-core": "^2.4.1",
         "karma": "^0.13.22",
         "karma-chrome-launcher": "*",
+        "karma-edge-launcher": "*",
         "karma-firefox-launcher": "*",
         "karma-ie-launcher": "*",
         "karma-jasmine": "^0.3.8",
@@ -85,6 +86,7 @@
         "phantomjs-prebuilt": "2.1.7"
     },
     "dependencies": {
+        "resolve": "^1.1.7",
         "which": "^1.2.4"
     }
 }
