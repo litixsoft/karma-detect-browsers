@@ -38,6 +38,7 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chrome-launcher',
+      'karma-edge-launcher',
       'karma-firefox-launcher',
       'karma-ie-launcher',
       'karma-safari-launcher',
@@ -99,6 +100,7 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chrome-launcher',
+      'karma-edge-launcher',
       'karma-firefox-launcher',
       'karma-ie-launcher',
       'karma-safari-launcher',
