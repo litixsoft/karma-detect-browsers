@@ -2,6 +2,7 @@
 
 var DetectBrowsers = function (config, logger) {
     var fs = require('fs'),
+        os = require('os'),
         which = require('which'),
         browsers = require('./browsers'),
         log = logger.create('framework.detect-browsers');
@@ -26,7 +27,13 @@ var DetectBrowsers = function (config, logger) {
             // iterate over all browser paths
             for (y = 0; y < paths; y++) {
                 try {
-                    if (fs.existsSync(browserPaths[y]) || process.env[browser.ENV_CMD] || which.sync(browserPaths[y])) {
+                    var browserLocated = fs.existsSync(browserPaths[y]) || process.env[browser.ENV_CMD] || which.sync(browserPaths[y]);
+
+                    // don't use Edge on operating systems other than Windows 10
+                    // (the launcher would be found, but would fail to run)
+                    var useBrowser = browser.name !== 'Edge' || process.platform === 'win32' && /^1\d/.test(os.release());
+
+                    if (browserLocated && useBrowser) {
                         // add browser when found in file system or when env variable is set
                         result.push(browser.name);
 
