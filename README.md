@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.1
+* Fix for build errors on unix systems
+
 ### v2.2.0
 * Add support for detecting Microsoft Edge browser
 
