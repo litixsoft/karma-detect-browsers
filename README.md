@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.0
+* Add support for detecting Microsoft Edge browser
+
 ### v2.1.0
 * Add support for detecting Safari Tech Preview
 
