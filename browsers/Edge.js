@@ -4,7 +4,7 @@ var CMD;
 try {
     CMD = resolve.sync('edge-launcher/Win32/MicrosoftEdgeLauncher.exe');
 } catch (e) {
-    return '';
+    CMD = '';
 }
 
 module.exports = {
