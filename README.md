@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.2
+* Fix error with Edge module on unix systems
+
 ### v2.2.1
 * Fix for build errors on unix systems
 
