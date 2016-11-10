@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.3
+* Edge.js will always return a browser object
+
 ### v2.2.2
 * Fix error with Edge module on unix systems
 
