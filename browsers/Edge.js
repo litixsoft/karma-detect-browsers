@@ -1,8 +1,7 @@
-var resolve = require('resolve');
 var CMD;
 
 try {
-    CMD = resolve.sync('edge-launcher/Win32/MicrosoftEdgeLauncher.exe');
+    CMD = require.resolve('edge-launcher/Win32/MicrosoftEdgeLauncher.exe');
 } catch (e) {
     CMD = '';
 }

@@ -88,7 +88,6 @@
         "phantomjs-prebuilt": "2.1.7"
     },
     "dependencies": {
-        "resolve": "^1.1.7",
         "which": "^1.2.4"
     }
 }
