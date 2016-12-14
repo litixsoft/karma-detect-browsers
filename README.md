@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.4
+* Update Edge detection to follow bug fixes in karma-edge-launcher
+
 ### v2.2.3
 * Edge.js will always return a browser object
 
