@@ -1,7 +1,7 @@
 var CMD;
 
 try {
-    CMD = require.resolve('edge-launcher/Win32/MicrosoftEdgeLauncher.exe');
+    CMD = require.resolve('edge-launcher/dist/x86/MicrosoftEdgeLauncher.exe');
 } catch (e) {
     CMD = '';
 }
