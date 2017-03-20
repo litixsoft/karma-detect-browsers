@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.5
+* Update edge launcher binary path
+
 ### v2.2.4
 * Update Edge detection to follow bug fixes in karma-edge-launcher
 
