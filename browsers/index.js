@@ -1,5 +1,6 @@
 module.exports = {
     chrome: require('./Chrome.js'),
+    chromium: require('./Chromium.js'),
     chromeCanary: require('./ChromeCanary.js'),
     edge: require('./Edge.js'),
     firefox: require('./Firefox.js'),
