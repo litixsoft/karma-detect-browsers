@@ -18,6 +18,13 @@ var DetectBrowsers = function (config, logger) {
             browserNames = Object.keys(browsers),
             result = [];
 
+        // only use one firefox version on linux
+        if (process.platform === 'linux') {
+            browserNames = browserNames.filter(function (name) {
+                return name !== 'firefoxAurora' && name !== 'firefoxNightly'
+            });
+        }
+
         // iterate over all browsers in the browsers folder
         for (i = 0, length = browserNames.length; i < length; i++) {
             var browser = browsers[browserNames[i]],
