@@ -122,6 +122,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.2.6
+* Fix problem with stating multiple Firefox instances in Linux
+
 ### v2.2.5
 * Update edge launcher binary path
 
@@ -178,7 +181,7 @@ grunt demo
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013-2015 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2017 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
