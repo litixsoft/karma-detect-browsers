@@ -33,7 +33,7 @@ var DetectBrowsers = function (config, logger) {
                     // (the launcher would be found, but would fail to run)
                     var useBrowser = browser.name !== 'Edge' || process.platform === 'win32' && /^1\d/.test(os.release());
 
-                    if (browserLocated && useBrowser) {
+                    if (browserLocated && useBrowser && result.indexOf(browser.name) < 0) {
                         // add browser when found in file system or when env variable is set
                         result.push(browser.name);
 
