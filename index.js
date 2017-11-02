@@ -21,7 +21,7 @@ var DetectBrowsers = function (config, logger) {
         // only use one firefox version on linux
         if (process.platform === 'linux') {
             browserNames = browserNames.filter(function (name) {
-                return name !== 'firefoxAurora' && name !== 'firefoxNightly'
+                return name !== 'firefoxAurora' && name !== 'firefoxNightly';
             });
         }
 
