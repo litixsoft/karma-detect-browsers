@@ -16,7 +16,7 @@ module.exports = function (config) {
         // use dots reporter, as travis terminal does not support escaping sequences
         // possible values: 'dots', 'progress'
         // CLI --reporters progress
-        reporters: ['progress'],
+        reporters: [process.env.TRAVIS ? 'dots' : 'progress'],
 
         // web server port
         // CLI --port 9876
@@ -44,7 +44,7 @@ module.exports = function (config) {
         // - PhantomJS
         // - IE (only Windows)
         // CLI --browsers Chrome,Firefox,Safari
-        browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        browsers: [process.env.TRAVIS ? 'ChromiumHeadless_travis_ci' : 'Chrome'],
 
         // If browser does not capture in given timeout [ms], kill it
         // CLI --capture-timeout 5000

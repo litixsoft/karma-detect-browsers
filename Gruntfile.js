@@ -27,17 +27,26 @@ if(process.env.TRAVIS) {
         var config = karmaConfig[keys[i]];
 
         config.customLaunchers = {
-            Chrome_travis_ci: {
-                base: 'Chrome',
+            ChromeHeadless_travis_ci: {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']
+            },
+            ChromiumHeadless_travis_ci: {
+                base: 'ChromiumHeadless',
                 flags: ['--no-sandbox']
             }
         };
 
         config.detectBrowsers = config.detectBrowsers || {};
+        config.detectBrowsers.preferHeadless = true;
         config.detectBrowsers.postDetection = function(browsers) {
-            var index = browsers.indexOf('Chrome');
-            if(index !== -1) {
-                browsers[index] = 'Chrome_travis_ci';
+            var chromeHeadlessIndex = browsers.indexOf('ChromeHeadless');
+            if(chromeHeadlessIndex !== -1) {
+                browsers[chromeHeadlessIndex] = 'ChromeHeadless_travis_ci';
+            }
+            var chromiumHeadlessIndex = browsers.indexOf('ChromiumHeadless');
+            if(chromiumHeadlessIndex !== -1) {
+                browsers[chromiumHeadlessIndex] = 'ChromiumHeadless_travis_ci';
             }
             return browsers;
         };
