@@ -62,30 +62,44 @@ var DetectBrowsers = function (config, logger) {
 
     config = config || {};
     config.detectBrowsers = config.detectBrowsers || {};
+    config.plugins = config.plugins || [];
 
     if (config.detectBrowsers.enabled === false) {
         log.info('Detecting browsers is disabled. The browsers of the browsers array are used.');
         return;
     }
 
-    var availableBrowser = getInstalledBrowsers(browsers);
+    const configuredLaunchers = config.plugins.reduce((prev, plugin) => {
+        return prev.concat(Object.keys(plugin).filter(key => key.startsWith('launcher:')));
+    }, []);
+
+    let availableBrowsers = getInstalledBrowsers(browsers)
+    log.info('The following browsers were detected on your system:', availableBrowsers);
+
+    availableBrowsers = availableBrowsers.reduce((aggregate, browser) => {
+        if (configuredLaunchers.includes('launcher:' + browser)) {
+            return aggregate.concat(browser);
+        }
+        log.warn('No launcher found for browser ' + browser + ', it will not be used.');
+        return aggregate;
+    }, []);
 
     // override the browsers in the config only when browsers where find by this plugin
-    if (availableBrowser.length >= 0) {
+    if (availableBrowsers.length >= 0) {
         // check for PhantomJS option
         if (config.detectBrowsers.usePhantomJS !== false) {
-            availableBrowser.push('PhantomJS');
+            availableBrowsers.push('PhantomJS');
         }
 
-        log.info('The following browsers were detected on your system:', availableBrowser);
+        log.info('The following browsers will be used:', availableBrowsers);
 
         if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
-            availableBrowser = config.detectBrowsers.postDetection(availableBrowser);
+            availableBrowsers = config.detectBrowsers.postDetection(availableBrowsers);
         }
 
-        if (availableBrowser.length > 0) {
-            config.browsers = availableBrowser;
+        if (availableBrowsers.length > 0) {
+            config.browsers = availableBrowsers;
         }
     } else {
         log.warn('No browsers were detected. The browsers of the browsers array are used.');
