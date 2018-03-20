@@ -1,5 +1,15 @@
 'use strict';
 
+var headlessBrowsers = [
+    'Chrome',
+    'Chromium',
+    'ChromeCanary',
+    'Firefox',
+    'FirefoxDeveloper',
+    'FirefoxAurora',
+    'FirefoxNightly',
+];
+
 var DetectBrowsers = function (config, logger) {
     var fs = require('fs'),
         os = require('os'),
@@ -75,6 +85,11 @@ var DetectBrowsers = function (config, logger) {
         // check for PhantomJS option
         if (config.detectBrowsers.usePhantomJS !== false) {
             availableBrowser.push('PhantomJS');
+        }
+        if (config.detectBrowsers.preferHeadless) {
+            availableBrowser = availableBrowser.map(function (browser) {
+                return headlessBrowsers.indexOf(browser) >= 0 ? browser + 'Headless' : browser;
+            });
         }
 
         log.info('The following browsers were detected on your system:', availableBrowser);
