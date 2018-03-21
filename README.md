@@ -66,6 +66,9 @@ module.exports = function(config) {
       // enable/disable phantomjs support, default is true
       usePhantomJS: true,
 
+      // use headless mode, for browsers that support it, default is false
+      preferHeadless: true,
+
       // post processing of browsers list
       // here you can edit the list of browsers used by karma
       postDetection: function(availableBrowser) {
@@ -181,7 +184,7 @@ grunt demo
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013-2017 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2018 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

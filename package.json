@@ -35,7 +35,8 @@
         "John Vilk <jvilk@cs.umass.edu>",
         "Marcos Caceres <marcos@marcosc.com>",
         "Nick McCurdy <nick@nickmccurdy.com>",
-        "Esref Durna"
+        "Esref Durna",
+        "Jonathan Felchlin <jonathan@xgecko.com>"
     ],
     "repository": {
         "type": "git",
@@ -75,8 +76,8 @@
         "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-jshint": "^1.1.0",
         "grunt-karma": "^2.0.0",
-        "jasmine-core": "^2.4.1",
-        "karma": "^1.7.0",
+        "jasmine-core": "^3.1.0",
+        "karma": "^2.0.0",
         "karma-chrome-launcher": "*",
         "karma-edge-launcher": "*",
         "karma-firefox-launcher": "*",
@@ -86,7 +87,7 @@
         "karma-phantomjs-launcher": "*",
         "karma-safari-launcher": "*",
         "karma-safaritechpreview-launcher": "*",
-        "phantomjs-prebuilt": "2.1.14"
+        "phantomjs-prebuilt": "2.1.16"
     },
     "dependencies": {
         "which": "^1.2.4"
