@@ -107,8 +107,13 @@ var DetectBrowsers = function (config, logger) {
             availableBrowser = config.detectBrowsers.postDetection(availableBrowser);
         }
 
+        const browsers = config.browsers || [];
         if (availableBrowser.length > 0) {
-            config.browsers = availableBrowser;
+            config.browsers = browsers.concat(
+                availableBrowser.filter(function (browser) {
+                    return browsers.indexOf(browser) === -1;
+                })
+            );
         }
     } else {
         log.warn('No browsers were detected. The browsers of the browsers array are used.');
