@@ -86,7 +86,7 @@ var DetectBrowsers = function (config, logger) {
         log.info('Detecting browsers is disabled. The browsers of the browsers array are used.');
         return;
     }
-    const configuredLaunchers = config.plugins.reduce((prev, plugin) => {
+    var configuredLaunchers = config.plugins.reduce((prev, plugin) => {
         return prev.concat(Object.keys(plugin).filter(key => key.startsWith('launcher:')));
     }, []);
 
@@ -101,7 +101,7 @@ var DetectBrowsers = function (config, logger) {
     log.info('The following browsers were detected on your system:', availableBrowsers);
 
     availableBrowsers = availableBrowsers.reduce((aggregate, browser) => {
-        if (configuredLaunchers.includes('launcher:' + browser)) {
+        if (configuredLaunchers.indexOf('launcher:' + browser) >= 0) {
             return aggregate.concat(browser);
         }
         log.warn('No launcher found for browser ' + browser + ', it will not be used.');
@@ -122,7 +122,7 @@ var DetectBrowsers = function (config, logger) {
             availableBrowsers = config.detectBrowsers.postDetection(availableBrowsers);
         }
 
-        const browsers = config.browsers || [];
+        var browsers = config.browsers || [];
         if (availableBrowsers.length > 0) {
             config.browsers = browsers.concat(
                 availableBrowsers.filter(function (browser) {
