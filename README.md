@@ -125,6 +125,12 @@ grunt demo
 ```
 
 ## Release History
+### v2.3.0
+* Split Chrome and Chromium
+* Add support for headless mode in Chrome and Firefox
+* Add check if all browser launchers are installed
+* Preserve browser config for non-detectable browsers like SauceLabs
+
 ### v2.2.6
 * Fix problem with stating multiple Firefox instances in Linux
 
