@@ -71,7 +71,7 @@ module.exports = function(config) {
 
       // post processing of browsers list
       // here you can edit the list of browsers used by karma
-      postDetection: function(availableBrowser) {
+      postDetection: function(availableBrowsers) {
         /* Karma configuration with custom launchers
           customLaunchers: {
             IE9: {
@@ -82,14 +82,14 @@ module.exports = function(config) {
         */
 
           //Add IE Emulation
-          var result = availableBrowser;
+          var result = availableBrowsers;
 
-          if (availableBrowser.indexOf('IE')>-1) {
+          if (availableBrowsers.indexOf('IE')>-1) {
             result.push('IE9');
           }
 
           //Remove PhantomJS if another browser has been detected
-          if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS')>-1) {
+          if (availableBrowsers.length > 1 && availableBrowsers.indexOf('PhantomJS')>-1) {
             var i = result.indexOf('PhantomJS');
 
             if (i !== -1) {

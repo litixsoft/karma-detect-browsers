@@ -80,37 +80,52 @@ var DetectBrowsers = function (config, logger) {
 
     config = config || {};
     config.detectBrowsers = config.detectBrowsers || {};
+    config.plugins = config.plugins || [];
 
     if (config.detectBrowsers.enabled === false) {
         log.info('Detecting browsers is disabled. The browsers of the browsers array are used.');
         return;
     }
-    var availableBrowser = getInstalledBrowsers(browsers);
+    var configuredLaunchers = config.plugins.reduce((prev, plugin) => {
+        return prev.concat(Object.keys(plugin).filter(key => key.startsWith('launcher:')));
+    }, []);
+
+    var availableBrowsers = getInstalledBrowsers(browsers);
 
     if (config.detectBrowsers.preferHeadless) {
-        availableBrowser = availableBrowser.map(function (browser) {
+        availableBrowsers = availableBrowsers.map(function (browser) {
             return headlessBrowsers.indexOf(browser) >= 0 ? browser + 'Headless' : browser;
         });
     }
 
+    log.info('The following browsers were detected on your system:', availableBrowsers);
+
+    availableBrowsers = availableBrowsers.reduce((aggregate, browser) => {
+        if (configuredLaunchers.indexOf('launcher:' + browser) >= 0) {
+            return aggregate.concat(browser);
+        }
+        log.warn('No launcher found for browser ' + browser + ', it will not be used.');
+        return aggregate;
+    }, []);
+
     // override the browsers in the config only when browsers where find by this plugin
-    if (availableBrowser.length >= 0) {
+    if (availableBrowsers.length >= 0) {
         // check for PhantomJS option
         if (config.detectBrowsers.usePhantomJS !== false) {
-            availableBrowser.push('PhantomJS');
+            availableBrowsers.push('PhantomJS');
         }
 
-        log.info('The following browsers were detected on your system:', availableBrowser);
+        log.info('The following browsers will be used:', availableBrowsers);
 
         if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
-            availableBrowser = config.detectBrowsers.postDetection(availableBrowser);
+            availableBrowsers = config.detectBrowsers.postDetection(availableBrowsers);
         }
 
-        const browsers = config.browsers || [];
-        if (availableBrowser.length > 0) {
+        var browsers = config.browsers || [];
+        if (availableBrowsers.length > 0) {
             config.browsers = browsers.concat(
-                availableBrowser.filter(function (browser) {
+                availableBrowsers.filter(function (browser) {
                     return browsers.indexOf(browser) === -1;
                 })
             );
