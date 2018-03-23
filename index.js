@@ -115,8 +115,6 @@ var DetectBrowsers = function (config, logger) {
             availableBrowsers.push('PhantomJS');
         }
 
-        log.info('The following browsers will be used:', availableBrowsers);
-
         if (config.detectBrowsers.postDetection && typeof config.detectBrowsers.postDetection === 'function') {
             //Add specific process to manage browsers list
             availableBrowsers = config.detectBrowsers.postDetection(availableBrowsers);
@@ -130,6 +128,7 @@ var DetectBrowsers = function (config, logger) {
                 })
             );
         }
+        log.info('The following browsers will be used:', config.browsers);
     } else {
         log.warn('No browsers were detected. The browsers of the browsers array are used.');
     }
