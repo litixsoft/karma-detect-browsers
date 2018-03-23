@@ -126,6 +126,9 @@ grunt demo
 
 ## Release History
 ### v2.3.0
+* Fix log output of the browsers used, take possible changes made in the postDetection() function into account
+
+### v2.3.0
 * Split Chrome and Chromium
 * Add support for headless mode in Chrome and Firefox
 * Add check if all browser launchers are installed
