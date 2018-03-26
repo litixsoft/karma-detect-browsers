@@ -125,7 +125,10 @@ grunt demo
 ```
 
 ## Release History
-### v2.3.0
+### v2.3.2
+* Remove extra check if browsers are listed as plugin in the karma config file
+
+### v2.3.1
 * Fix log output of the browsers used, take possible changes made in the postDetection() function into account
 
 ### v2.3.0
