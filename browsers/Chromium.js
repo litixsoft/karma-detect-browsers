@@ -8,7 +8,7 @@ module.exports = {
             'chromium',
         ],
         darwin: [
-            '/Applications/Google Chrome.app/Contents/MacOS/Chromium',
+            '/Applications/Chromium.app/Contents/MacOS/Chromium',
         ],
         win32: [
             process.env['ProgramFiles(x86)'] + '\\Chromium\\Application\\chrome.exe',
