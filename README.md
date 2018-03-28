@@ -125,6 +125,9 @@ grunt demo
 ```
 
 ## Release History
+### v2.3.3
+* Fix path for Chromium browser in macOS
+
 ### v2.3.2
 * Remove extra check if browsers are listed as plugin in the karma config file
 
