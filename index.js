@@ -107,11 +107,11 @@ var DetectBrowsers = function (config, logger) {
             availableBrowsers = config.detectBrowsers.postDetection(availableBrowsers);
         }
 
-        var browsers = config.browsers || [];
+        var browserList = config.browsers || [];
         if (availableBrowsers.length > 0) {
-            config.browsers = browsers.concat(
+            config.browsers = browserList.concat(
                 availableBrowsers.filter(function (browser) {
-                    return browsers.indexOf(browser) === -1;
+                    return browserList.indexOf(browser) === -1;
                 })
             );
         }
