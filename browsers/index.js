@@ -10,4 +10,5 @@ module.exports = {
     // opera: require('./Opera.js'),
     safari: require('./Safari.js'),
     safariTechPreview: require('./SafariTechPreview.js'),
+    brave: require('./Brave')
 };
