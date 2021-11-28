@@ -1,6 +1,7 @@
 module.exports = {
     name: 'Chromium',
     DEFAULT_CMD: {
+        freebsd: ['chromium'],
         linux: [
             // Try chromium-browser before chromium to avoid conflict with the legacy
             // chromium-bsu package previously known as 'chromium' in Debian and Ubuntu.
