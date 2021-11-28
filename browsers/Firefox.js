@@ -1,6 +1,7 @@
 module.exports = {
     name: 'Firefox',
     DEFAULT_CMD: {
+        freebsd: ['firefox'],
         linux: ['firefox'],
         darwin: ['/Applications/Firefox.app/Contents/MacOS/firefox-bin'],
         win32: [
